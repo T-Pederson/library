@@ -6,6 +6,10 @@ body {
     margin: 0;
 }
 
+h2 {
+    margin: 0;
+}
+
 .cards {
     display: grid;
     gap: 16px;
@@ -66,17 +70,24 @@ Button:active {
 }
 
 .modal-content {
+    position: relative;
     background-color: white;
     margin: 30% auto;
-    padding: 12px;
+    padding: 16px 24px;
     border: 1px solid #888;
-    width: fit-content;
+    width: 250px;
+    border-radius: 24px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animate;
+    animation-duration: 0.4s
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 4px;
+    margin-top: 8px;
 }
 
 .close {
@@ -88,4 +99,14 @@ form {
 .close:hover, 
 .close:focus {
     cursor: pointer;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+/* Add Animation */
+@keyframes animate {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
 }

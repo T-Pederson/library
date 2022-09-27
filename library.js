@@ -59,7 +59,7 @@ function tempBook() {
     let title = "Goodnight Moon";
     let author = "Margaret Wise Brown";
     let pages = "32";
-    let read = "yes";
+    let read = "Yes";
     myLibrary.push(new Book(title, author, pages, read));
     updateLibrary();
 }

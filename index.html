@@ -16,18 +16,23 @@
 
     <div class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <form>
-                <label for="title">Title</label>
-                <input type="text" name="title" required>
-                <label for="author">Author</label>
-                <input type="text" name="author" required>
-                <label for="pages">Pages</label>
-                <input type="number" name="pages" step="1" min="1" required>
-                <label for="read">Read</label>
-                <input type="checkbox" name="read">
-                <button type="button" id="addBook">Add Book</button>
-            </form>
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Add New Book</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" required>
+                    <label for="author">Author</label>
+                    <input type="text" name="author" required>
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" step="1" min="1" required>
+                    <label for="read">Read</label>
+                    <input type="checkbox" name="read">
+                    <button type="button" id="addBook">Add Book</button>
+                </form>
+            </div>
         </div>
     </div>
     
