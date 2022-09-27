@@ -2,7 +2,7 @@
     display: grid;
     gap: 16px;
     padding: 24px;
-    grid-template-columns: repeat(auto-fill, 424px);
+    grid-template-columns: repeat(auto-fill, 440px);
 }
 
 .card {
@@ -10,7 +10,7 @@
     border-radius: 12px;
     height: 200px;
     width: 400px;
-    padding: 0 12px;
+    padding: 0 20px;
     align-items: center;
     background-color: #bae6fd;
     font-family: 'Roboto', sans-serif;
