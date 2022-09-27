@@ -12,7 +12,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button id="newBook">Add Book</button>
+    <button id="newBook">New Book</button>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+                <label for="title">Title</label>
+                <input type="text" name="title" required>
+                <label for="author">Author</label>
+                <input type="text" name="author" required>
+                <label for="pages">Pages</label>
+                <input type="number" name="pages" step="1" min="1" required>
+                <label for="read">Read</label>
+                <input type="checkbox" name="read">
+                <button type="button" id="addBook">Add Book</button>
+            </form>
+        </div>
+    </div>
+    
+
     <div class="cards"></div>
 </body>
 </html>

@@ -39,16 +39,26 @@ function updateLibrary() {
         card.appendChild(deleteButton);
         card.classList.add("card");
         document.querySelector(".cards").appendChild(card);
-        document.querySelector(".deleteButton").addEventListener("click", removeBookFromLibrary);
     }
 }
 
-// Delete the selected book from the library
-function removeBookFromLibrary() {
+const modal = document.querySelector(".modal");
+const newBookBtn = document.querySelector("#newBook");
+const close = document.querySelector(".close");
 
+newBookBtn.onclick = function() {
+    modal.style.display = "block";
 }
 
-document.querySelector("button").addEventListener("click", addBookToLibrary);
+close.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 
 
