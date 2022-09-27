@@ -1,0 +1,46 @@
+.cards {
+    display: grid;
+    gap: 16px;
+    padding: 24px;
+    grid-template-columns: repeat(auto-fill, 424px);
+}
+
+.card {
+    display: grid;
+    border-radius: 12px;
+    height: 200px;
+    width: 400px;
+    padding: 0 12px;
+    align-items: center;
+    background-color: #bae6fd;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card p {
+    margin: 0;
+}
+
+button {
+    width: fit-content;
+    font-weight: bold;
+    border-radius: 24px;
+    border: none;
+    padding: 6px 12px;
+    background-color: rgba(2, 132, 199, 0.7);
+}
+
+#newBook:hover {
+    background-color: rgba(2, 132, 199, 0.9);
+}
+
+.deleteButton {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.deleteButton:hover {
+    background-color: rgba(255, 0, 0, 0.6);
+}
+
+Button:active {
+    scale: 95%;
+}
