@@ -42,19 +42,11 @@ function updateLibrary() {
     }
 }
 
+// assign modal element to variable and add functionality to open/close modal
 const modal = document.querySelector(".modal");
-const newBookBtn = document.querySelector("#newBook");
-const close = document.querySelector(".close");
-
-newBookBtn.onclick = function() {
-    modal.style.display = "block";
-}
-
-close.onclick = function() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
+document.querySelector("#newBook").onclick = () => modal.style.display = "block";
+document.querySelector(".close").onclick = () => modal.style.display = "none";
+window.onclick = (event) => { 
     if (event.target == modal) {
         modal.style.display = "none";
     }

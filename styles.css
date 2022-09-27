@@ -36,7 +36,8 @@ button {
     background-color: rgba(2, 132, 199, 0.7);
 }
 
-#newBook:hover {
+#newBook:hover,
+#addBook:hover {
     background-color: rgba(2, 132, 199, 0.9);
 }
 
