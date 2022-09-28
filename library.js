@@ -15,18 +15,12 @@ function addBookToLibrary() {
     let author = document.querySelector("[name=author]");
     let pages = document.querySelector("[name=pages]");
     let read = document.querySelector("#read");
-    let readStatus;
-    if (read.checked) {
-        readStatus = "Yes";
-    } else {
-        readStatus = "No";
-    }
     // If title, author or pages is blank don't let the user add the book
     if (title.value == "" || author.value == "" || pages.value == "") {
         return;
     }
     // Add the book to the myLibrary array, update the library, close the modal, and reset the form fields
-    myLibrary.push(new Book(title.value, author.value, pages.value, readStatus));
+    myLibrary.push(new Book(title.value, author.value, pages.value, read.checked));
     updateLibrary();
     modal.style.display = "none";
     title.value = "";
@@ -102,7 +96,7 @@ function createCard () {
                 slider.classList.add("slider", "round");
                 label.appendChild(slider);
                 // Detect the status of the slider from the user submitted form
-                if (myLibrary[book][property] == "Yes") {
+                if (myLibrary[book][property] == true) {
                     readStatus.checked = true;
                 }
             } else {
@@ -130,7 +124,7 @@ function tempBook() {
     let title = "Goodnight Moon";
     let author = "Margaret Wise Brown";
     let pages = "32";
-    let read = "Yes";
+    let read = true;
     myLibrary.push(new Book(title, author, pages, read));
     updateLibrary();
 }
