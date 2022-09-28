@@ -60,7 +60,7 @@ button {
     cursor: pointer;
 }
 
-.deleteButton {
+.removeButton {
     background-color: rgba(255, 0, 0, 0.7);
     cursor: pointer;
 }

@@ -32,20 +32,26 @@ function updateLibrary() {
         cards.removeChild(cards.lastChild);
     }
     // Create card, add content to card, and add card to page
+    let bookCount = 0;
     for (let book in myLibrary) {
         const card = document.createElement("div");
+        card.setAttribute("id", bookCount);
+        bookCount++;
         for (let property in myLibrary[book]) {
             let info = document.createElement("p");
             info.innerText = `${property.charAt(0).toUpperCase() + property.slice(1)}: ${myLibrary[book][property]}`
             card.appendChild(info);
         }
-        let deleteButton = document.createElement("button");
-        deleteButton.innerText = "Remove";
-        deleteButton.classList.add("deleteButton")
-        card.appendChild(deleteButton);
+        let removeButton = document.createElement("button");
+        removeButton.innerText = "Remove";
+        removeButton.classList.add("removeButton")
+        card.appendChild(removeButton);
         card.classList.add("card");
         document.querySelector(".cards").appendChild(card);
     }
+    document.querySelectorAll(".removeButton").forEach(item => {
+        item.addEventListener("click", removeBook);
+    })
 }
 
 // Add ability to open/close the new book modal
@@ -56,6 +62,13 @@ window.onclick = (event) => {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
+
+// Make remove button work
+function removeBook () {
+    let bookIndex = this.parentElement.id;
+    myLibrary.splice(bookIndex, 1);
+    updateLibrary();
 }
 
 // Make the add book button work
