@@ -114,11 +114,7 @@ function createCard () {
 // Make clicking the add book button work
 document.querySelector("#addBook").addEventListener("click", addBookToLibrary);
 
-
-
-
-
-// Temp function to add a default book for setting layout/design
+// Add a default book to give user some context
 function tempBook() {
     let title = "Goodnight Moon";
     let author = "Margaret Wise Brown";
@@ -128,7 +124,4 @@ function tempBook() {
     updateLibrary();
 }
 
-tempBook();
-tempBook();
-tempBook();
 tempBook();
