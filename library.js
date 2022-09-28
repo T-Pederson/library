@@ -90,6 +90,10 @@ function createCard () {
                 let slider = document.createElement("span");
                 slider.classList.add("slider", "round");
                 label.appendChild(slider);
+                // Detect the status of the slider from the user submitted form
+                if (myLibrary[book][property] == "Yes") {
+                    readStatus.checked = true;
+                }
             } else {
                 // Create text for title, author and page count
                 let info = document.createElement("p");
