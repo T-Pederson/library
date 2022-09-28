@@ -10,18 +10,29 @@ function Book(title, author, pages, read) {
 
 // Update the page to include a new book the user submits via the new book form
 function addBookToLibrary() {
-    let title = document.querySelector("[name=title]").value;
-    let author = document.querySelector("[name=author]").value;
-    let pages = document.querySelector("[name=pages]").value;
-    let read;
-    if (document.querySelector("#read").checked) {
-        read = "Yes";
+    // Assign form elements to variables
+    let title = document.querySelector("[name=title]");
+    let author = document.querySelector("[name=author]");
+    let pages = document.querySelector("[name=pages]");
+    let read = document.querySelector("#read");
+    let readStatus;
+    if (read.checked) {
+        readStatus = "Yes";
     } else {
-        read = "No";
+        readStatus = "No";
     }
-    myLibrary.push(new Book(title, author, pages, read));
+    // If title, author or pages is blank don't let the user add the book
+    if (title.value == "" || author.value == "" || pages.value == "") {
+        return;
+    }
+    // Add the book to the myLibrary array, update the library, close the modal, and reset the form fields
+    myLibrary.push(new Book(title.value, author.value, pages.value, readStatus));
     updateLibrary();
     modal.style.display = "none";
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    read.checked = false;
 }
 
 // Loop through myLibrary and add all books as cards on the page
