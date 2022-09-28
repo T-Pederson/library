@@ -10,12 +10,18 @@ function Book(title, author, pages, read) {
 
 // Create form for the user to fill out to add a book to the list, then update the page to include the new book
 function addBookToLibrary() {
-    let title = prompt("Title?");
-    let author = prompt("Author?");
-    let pages = prompt("Pages?");
-    let read = prompt("Read yet?");
+    let title = document.querySelector("[name=title]").value;
+    let author = document.querySelector("[name=author]").value;
+    let pages = document.querySelector("[name=pages]").value;
+    let read;
+    if (document.querySelector("#read").checked) {
+        read = "Yes";
+    } else {
+        read = "No";
+    }
     myLibrary.push(new Book(title, author, pages, read));
     updateLibrary();
+    modal.style.display = "none";
 }
 
 // Function to loop through myLibrary and add all books from this as cards on the page
@@ -52,6 +58,7 @@ window.onclick = (event) => {
     }
 }
 
+document.querySelector("#addBook").addEventListener("click", addBookToLibrary);
 
 
 // Temp function to add a default book for setting layout/design
