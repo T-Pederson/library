@@ -12,7 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button id="newBook">New Book</button>
+    <div class="header">
+        <h1>Library</h1>
+        <button id="newBook">New Book</button>
+    </div>
 
     <div class="modal">
         <div class="modal-content">
@@ -23,13 +26,16 @@
             <div class="modal-body">
                 <form>
                     <label for="title">Title</label>
-                    <input type="text" name="title" required>
+                    <input type="text" name="title" required maxlength="48">
                     <label for="author">Author</label>
-                    <input type="text" name="author" required>
+                    <input type="text" name="author" required maxlength="48">
                     <label for="pages">Pages</label>
-                    <input type="number" name="pages" step="1" min="1" required>
-                    <label for="read">Read</label>
-                    <input type="checkbox" name="read">
+                    <input type="number" name="pages" step="1" min="1" maxlength="48" required>
+                    <span>Read</span>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
                     <button type="button" id="addBook">Add Book</button>
                 </form>
             </div>
