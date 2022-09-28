@@ -8,7 +8,7 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-// Create form for the user to fill out to add a book to the list, then update the page to include the new book
+// Update the page to include a new book the user submits via the new book form
 function addBookToLibrary() {
     let title = document.querySelector("[name=title]").value;
     let author = document.querySelector("[name=author]").value;
@@ -24,14 +24,14 @@ function addBookToLibrary() {
     modal.style.display = "none";
 }
 
-// Function to loop through myLibrary and add all books from this as cards on the page
+// Loop through myLibrary and add all books as cards on the page
 function updateLibrary() {
     // Clear list to prevent duplicating everything when adding a new book
     const cards = document.querySelector(".cards");
     while (cards.firstChild) {
         cards.removeChild(cards.lastChild);
     }
-    // Loop through entire library and add all books as cards
+    // Create card, add content to card, and add card to page
     for (let book in myLibrary) {
         const card = document.createElement("div");
         for (let property in myLibrary[book]) {
@@ -48,7 +48,7 @@ function updateLibrary() {
     }
 }
 
-// assign modal element to variable and add functionality to open/close modal
+// Add ability to open/close the new book modal
 const modal = document.querySelector(".modal");
 document.querySelector("#newBook").onclick = () => modal.style.display = "block";
 document.querySelector(".close").onclick = () => modal.style.display = "none";
@@ -58,7 +58,11 @@ window.onclick = (event) => {
     }
 }
 
+// Make the add book button work
 document.querySelector("#addBook").addEventListener("click", addBookToLibrary);
+
+
+
 
 
 // Temp function to add a default book for setting layout/design
