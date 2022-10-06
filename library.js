@@ -1,24 +1,39 @@
 let myLibrary = [];
 
-// Constructor for new books
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+// Make clicking the add book button work
+document.querySelector("#addBook").addEventListener("click", addBookToLibrary);
+
+// Add ability to open/close the new book modal
+const modal = document.querySelector(".modal");
+document.querySelector("#newBook").onclick = () => modal.style.display = "block";
+document.querySelector(".close").onclick = () => modal.style.display = "none";
+window.onclick = (event) => { 
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Use class to create a book object with (title, author, pages, read) properties
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 // Update the page to include a new book the user submits via the new book form
 function addBookToLibrary() {
-    // If title, author or pages is blank don't let the user add the book
-    if (title.value == "" || author.value == "" || pages.value == "") {
-        return;
-    }
     // Assign form elements to variables
     let title = document.querySelector("[name=title]");
     let author = document.querySelector("[name=author]");
     let pages = document.querySelector("[name=pages]");
     let read = document.querySelector("#read");
+    // If title, author or pages is blank don't let the user add the book
+    if (title.value == "" || author.value == "" || pages.value == "") {
+        return;
+    }
     // Add the book to the myLibrary array, update the library, close the modal, and reset the form fields
     myLibrary.push(new Book(title.value, author.value, pages.value, read.checked));
     updateLibrary();
@@ -41,17 +56,7 @@ function updateLibrary() {
     })
 }
 
-// Add ability to open/close the new book modal
-const modal = document.querySelector(".modal");
-document.querySelector("#newBook").onclick = () => modal.style.display = "block";
-document.querySelector(".close").onclick = () => modal.style.display = "none";
-window.onclick = (event) => { 
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-// Make remove buttons work
+// Make remove buttons work, helper function for updateLibrary
 function removeBook () {
     let bookIndex = this.parentElement.id;
     myLibrary.splice(bookIndex, 1);
@@ -116,9 +121,6 @@ function createCard () {
     }
 }
 
-// Make clicking the add book button work
-document.querySelector("#addBook").addEventListener("click", addBookToLibrary);
-
 // Add a default book to give user some context
 function tempBook() {
     let title = "Goodnight Moon";
@@ -128,5 +130,4 @@ function tempBook() {
     myLibrary.push(new Book(title, author, pages, read));
     updateLibrary();
 }
-
 tempBook();
